@@ -1,27 +1,41 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <div>user昵称: {{bot_name}}</div>
+    <div>user年龄: {{bot_age}}</div>
+  </div>
   <route-view></route-view>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import $ from 'jquery'
+import {ref} from "vue";
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  name:"App",
+  setup:()=>{
+    let bot_name = ref("");
+    let bot_age = ref("");
+
+    $.ajax({
+      url:"http://127.0.0.1:3000/user/userto/",
+      type:"get",
+      success:resp =>{
+        bot_name.value = resp.name;
+        bot_age.value = resp.age;
+      }
+    });
+
+    return{
+      bot_name,
+      bot_age
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body {
+  background-image: url("../src/assets/backgrand.jpg");
+  background-size: cover;
 }
 </style>
