@@ -1,0 +1,7 @@
+server:
+  port: 3000
+
+spring:
+  devtools:
+    restart:
+      exclude: static/**,public/**,config/application.yaml
