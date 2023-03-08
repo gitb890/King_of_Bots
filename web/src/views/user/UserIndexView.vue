@@ -1,10 +1,16 @@
 <template>
-<div>用户</div>
+  <ContentField>
+    用户
+  </ContentField>
 </template>
 
 <script>
+import ContentField from "@/components/ContentField";
+
 export default {
-  name: "UserIndexView"
+  components:{
+    ContentField
+  }
 }
 </script>
 

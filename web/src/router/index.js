@@ -1,6 +1,6 @@
-import {createRouter} from 'vue-router';
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import {createRouter,createWebHistory} from 'vue-router';
+// import Vue from 'vue'
+// import VueRouter from 'vue-router'
 import PkIndexView from '../views/pk/PkIndexView';
 import RankListIndexView from '../views/ranklist/RankListIndexView';
 import RecordIndexView from '../views/record/RecordIndexView';
@@ -9,7 +9,7 @@ import UserIndexView from '../views/user/UserIndexView';
 import NotFound from '../views/error/NotFound';
 
 
-Vue.use(VueRouter)
+// Vue.use(VueRouter)
 
 const routes = [
     {
@@ -53,8 +53,8 @@ const routes = [
     }
 ]
 
-const router =new createRouter({
-    history: createRouter(),
+const router =createRouter({
+    history: createWebHistory(),
     routes
 })
 

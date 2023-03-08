@@ -43,7 +43,7 @@ export default {
 
 <style>
 body {
-  background-image: url("../src/assets/backgrand.jpg");
+  background-image: url("../src/assets/backgrand.png");
   background-size: cover;
 }
 </style>

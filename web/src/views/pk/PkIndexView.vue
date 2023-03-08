@@ -1,10 +1,16 @@
 <template>
-<div>对战页面</div>
+  <ContentField>
+    对战
+  </ContentField>
 </template>
 
 <script>
+import ContentField from "@/components/ContentField";
+
 export default {
-  name: "PkIndexView"
+  components:{
+    ContentField
+  }
 }
 </script>
 

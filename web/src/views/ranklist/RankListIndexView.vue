@@ -1,10 +1,16 @@
 <template>
-<div>排行榜</div>
+  <ContentField>
+    排行榜
+  </ContentField>
 </template>
 
 <script>
+import ContentField from "@/components/ContentField";
+
 export default {
-  name: "RankListIndexView"
+  components:{
+    ContentField
+  }
 }
 </script>
 
