@@ -1,15 +1,15 @@
 <template>
-  <ContentField>
+  <PlayGrand>
     对战
-  </ContentField>
+  </PlayGrand>
 </template>
 
 <script>
-import ContentField from "@/components/ContentField";
+import PlayGrand from "@/components/PlayGrand";
 
 export default {
   components:{
-    ContentField
+    PlayGrand
   }
 }
 </script>

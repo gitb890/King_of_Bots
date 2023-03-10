@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container content-feild">
     <div class="card">
       <div class="card-body">
         <slot></slot>
@@ -16,5 +16,7 @@ export default {
 </script>
 
 <style scoped>
-
+div.content-feild{
+  margin-top: 20px;
+}
 </style>
