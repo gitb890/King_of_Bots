@@ -22,7 +22,6 @@ export class GameObjects{
     }
 
     distroy(){//销毁
-
         this.ondistroy();
         for (let i in GAME_OBJECTS){
             const obj = GAME_OBJECTS[i];

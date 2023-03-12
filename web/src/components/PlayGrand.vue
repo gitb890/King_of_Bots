@@ -18,7 +18,6 @@ export default {
 div.playgrand{
   width: 68vw;
   height: 78vh;
-  background: lightcyan;
   margin: 20px auto;
 }
 </style>
