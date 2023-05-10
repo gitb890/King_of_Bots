@@ -1,6 +1,10 @@
 package com.wang.backend.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -25,12 +29,18 @@ public class CorsConfig implements Filter {
             response.setHeader("Access-Control-Expose-Headers", headers);
         }
 
+        response.addHeader("Access-Control-Expose-Headers","Authorization");
+        response.setHeader("Access-Control-Expose-Header","Authorization");
         response.setHeader("Access-Control-Allow-Methods", "*");
         response.setHeader("Access-Control-Max-Age", "3600");
+
         response.setHeader("Access-Control-Allow-Credentials", "true");
+
+
 
         chain.doFilter(request, response);
     }
+
 
     @Override
     public void init(FilterConfig filterConfig) {
@@ -41,4 +51,3 @@ public class CorsConfig implements Filter {
     public void destroy() {
     }
 }
-

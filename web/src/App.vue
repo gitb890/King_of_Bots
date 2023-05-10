@@ -13,30 +13,15 @@
 import NavBar from './components/NavBar.vue'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap"
+// import $ from 'jquery'
 
 
 export default {
-  // name:"App",
-  // setup:()=>{
-  //   let bot_name = ref("");
-  //   let bot_age = ref("");
-  //
-  //   $.ajax({
-  //     url:"http://127.0.0.1:3000/user/userto/",
-  //     type:"get",
-  //     success:resp =>{
-  //       bot_name.value = resp.name;
-  //       bot_age.value = resp.age;
-  //     }
-  //   });
-  //
-  //   return{
-  //     bot_name,
-  //     bot_age
-  //   }
-  // }
   components:{
     NavBar
+  },
+  setup(){
+
   }
 }
 </script>
