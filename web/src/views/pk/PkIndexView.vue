@@ -1,22 +1,25 @@
 <template>
   <PlayGrand v-if="$store.state.pk.status === 'playing'"/>
   <MatchGrand v-if="$store.state.pk.status === 'matching'"/>
+  <ResultBoard v-if="$store.state.pk.loser !== 'none'"/>
 </template>
 
 <script>
 import PlayGrand from "@/components/PlayGrand";
 import MatchGrand from "@/components/MatchGrand";
 import {onMounted,onUnmounted} from "vue";
-import {useStore} from 'vuex'
+import {useStore} from 'vuex';
+import ResultBoard from '@/components/ResultBoard';
 
 export default {
   components:{
     PlayGrand,
     MatchGrand,
+    ResultBoard,
   },
   setup(){
     const store = useStore();
-    const socketUrl = `ws://192.168.1.2:3000/websocket/${store.state.user.token}/`;
+    const socketUrl = `ws://localhost:3000/websocket/${store.state.user.token}/`;
 
     let socket = null;
     onMounted(() =>{
@@ -43,8 +46,28 @@ export default {
           })
           setTimeout(()=>{
             store.commit("updateStatus","playing");
-          },2000)
-          store.commit("updateGamemap",data.gamemap);
+          },200)
+          store.commit("updateGame", data.game);
+        }else if (data.event === "move"){
+          console.log(data);
+          const game = store.state.pk.gameObject;
+          const [snake0,snake1] = game.snakes;
+          snake0.set_direction(data.a_direction);
+          snake1.set_direction(data.b_direction);
+        }else if(data.event === "result"){
+          console.log(data);
+          const game = store.state.pk.gameObject;
+          const [snake0,snake1] = game.snakes;
+          if (data.loser === "all" || data.loser === "A"){
+            snake0.status = "die";
+          }
+          if (data.loser === "all" || data.loser === "B"){
+            snake1.status = "die";
+          }
+          store.commit(
+              "updateLoser",
+              data.loser
+          )
         }
       }
 
